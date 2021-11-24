@@ -50,7 +50,7 @@
   "dependencies": {
     "debug": "^2.2.0",
     "glob": "^7.1.1",
-    "mongodb-download": "^2.2.7",
+    "mongodb-download": "blackdynamo/mongodb-download#fix/support-for-newer-versions-of-mongodb-on-mac",
     "spawn-sync": "1.0.15",
     "yargs": "^3.26.0"
   },
