@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.runCommand = void 0;
 var mongo_bins_1 = require("../mongo-bins");
 function runCommand(command) {
     var downloadOpts = getDownloadOpts();
     var mongoBin = new mongo_bins_1.MongoBins(command, process.argv.slice(2), { stdio: 'inherit' }, downloadOpts);
     mongoBin.run()
         // .then(() => console.log(`${command} is now running`))
-        .catch(function (error) { return console.error("unable to launch " + command, error); });
+        .catch(function (error) { return console.error("unable to launch ".concat(command), error); });
 }
 exports.runCommand = runCommand;
 function getDownloadOpts() {
@@ -23,4 +24,4 @@ function setIfExists(obj, property) {
         obj[property] = value;
     }
 }
-//# sourceMappingURL=/Users/alwyn/crashburn/mongodb-prebuilt/bin/runCommandHelper.js.map
+//# sourceMappingURL=../../src/bin/runCommandHelper.js.map

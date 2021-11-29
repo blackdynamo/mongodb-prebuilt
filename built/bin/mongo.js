@@ -2,5 +2,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var runCommandHelper_1 = require("./runCommandHelper");
-runCommandHelper_1.runCommand('mongo');
-//# sourceMappingURL=/Users/alwyn/crashburn/mongodb-prebuilt/bin/mongo.js.map
+(0, runCommandHelper_1.runCommand)('mongo');
+//# sourceMappingURL=../../src/bin/mongo.js.map

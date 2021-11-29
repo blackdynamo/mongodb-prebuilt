@@ -1,4 +1,10 @@
 #!/usr/bin/env node
+/*
+    make sure every few seconds that parent is still alive
+    and if it is dead, we will kill child too.
+    this is to ensure that exits done via kill
+    wont leave mongod around
+*/
 var parentPid = parseInt(process.argv[2]);
 var childPid = parseInt(process.argv[3]);
 setInterval(function () {
@@ -15,4 +21,4 @@ setInterval(function () {
         process.exit();
     }
 }, 2000);
-//# sourceMappingURL=/Users/alwyn/crashburn/mongodb-prebuilt/bin/mongo-supervise.js.map
+//# sourceMappingURL=../../src/bin/mongo-supervise.js.map

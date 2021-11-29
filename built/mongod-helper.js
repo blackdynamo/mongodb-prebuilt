@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.MongodHelper = void 0;
 var mongo_bins_1 = require("./mongo-bins");
 var Debug = require('debug');
 var COMMAND = "mongod";
@@ -35,13 +36,13 @@ var MongodHelper = /** @class */ (function () {
         this.mongoBin.childProcess.kill('SIGTERM');
     };
     MongodHelper.prototype.closeHandler = function (code) {
-        this.debug("mongod close: " + code);
+        this.debug("mongod close: ".concat(code));
     };
     MongodHelper.prototype.stderrHandler = function (message) {
-        this.debug("mongod stderr: " + message);
+        this.debug("mongod stderr: ".concat(message));
     };
     MongodHelper.prototype.stdoutHandler = function (message) {
-        this.debug("mongod stdout: " + message);
+        this.debug("mongod stdout: ".concat(message));
         var log = message.toString();
         var mongodStartExpression = this.getMongodStartedExpression();
         var mongodAlreadyRunningExpression = this.getMongodAlreadyRunningExpression();
@@ -68,7 +69,7 @@ var MongodHelper = /** @class */ (function () {
         }
     };
     MongodHelper.prototype.getMongodStartedExpression = function () {
-        return /waiting for connections on port/i;
+        return /waiting for connections/i;
     };
     MongodHelper.prototype.getMongodAlreadyRunningExpression = function () {
         return /mongod instance already running/i;
@@ -85,4 +86,4 @@ var MongodHelper = /** @class */ (function () {
     return MongodHelper;
 }());
 exports.MongodHelper = MongodHelper;
-//# sourceMappingURL=/Users/alwyn/crashburn/mongodb-prebuilt/mongod-helper.js.map
+//# sourceMappingURL=../src/mongod-helper.js.map

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.MongoBins = void 0;
 var Debug = require('debug');
 var path_1 = require("path");
 var child_process_1 = require("child_process");
@@ -29,11 +30,11 @@ var MongoBins = /** @class */ (function () {
                     // all good
                 }, function (e) {
                     // didnt start
-                    _this.debug("run() Supervise process didn't start: " + e);
+                    _this.debug("run() Supervise process didn't start: ".concat(e));
                 });
                 resolve(true);
             }, function (e) {
-                _this.debug("error executing command " + e);
+                _this.debug("error executing command ".concat(e));
                 reject(e);
             });
         });
@@ -49,7 +50,7 @@ var MongoBins = /** @class */ (function () {
             ]).then(function (promiseValues) {
                 var command = promiseValues[0];
                 var commandArguments = promiseValues[1];
-                _this.childProcess = child_process_1.spawn(command, commandArguments, _this.spawnOptions);
+                _this.childProcess = (0, child_process_1.spawn)(command, commandArguments, _this.spawnOptions);
                 _this.childProcess.on('close', function () {
                     _this.mongoSupervice.monitorChild.kill();
                 });
@@ -61,8 +62,8 @@ var MongoBins = /** @class */ (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.mongoDBPrebuilt.getBinPath().then(function (binPath) {
-                var command = path_1.resolve(binPath, _this.command);
-                _this.debug("getCommand(): " + command);
+                var command = (0, path_1.resolve)(binPath, _this.command);
+                _this.debug("getCommand(): ".concat(command));
                 resolve(command);
             });
         });
@@ -76,4 +77,4 @@ var MongoBins = /** @class */ (function () {
     return MongoBins;
 }());
 exports.MongoBins = MongoBins;
-//# sourceMappingURL=/Users/alwyn/crashburn/mongodb-prebuilt/mongo-bins.js.map
+//# sourceMappingURL=../src/mongo-bins.js.map
